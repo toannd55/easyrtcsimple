@@ -45,11 +45,41 @@ body {
 }
 
 #message {
-	position: inherit;
+	position: relative;
 	float: right;
 }
 
+#receivedMessageBox {
+	position: absolute;
+}
+#conversation {
+	width: 216px;
+	height:522px;
+	margin-top: 24px;
+	margin-right: -10px;
+	background: rgba(234,229,229, 0.6);
+	border:solid 1px gray;
+	color: #fff;
+	overflow-y:scroll;
+}
+
+#inputMessageBox {
+	position: relative;
+}
+
 #sendMessage {
+	position: absolute;
+	width: 180px;
+	height: 32px;
+	resize:none;
+}
+
+.btnSend {
+	width: 36px;
+	height: 38px;
+	float: right;
+	margin-right:-10px;
+	position: relative;
 }
 
 #bottombar {

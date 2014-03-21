@@ -1,20 +1,69 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>EasyRTC - Server Root</title>
-    <script type="text/javascript">
-        function forward(){ window.location = "/demos/";}
-    </script>
-</head>
-<body onload="setTimeout('forward()', 10)">
-    <h1>You have installed EasyRTC!</h1>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="keywords" content="JavaScript, EasyRTC" />
+		<meta name="description" content="EasyRTC NDT" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1">
+		
+		<title>Call Video Free</title>
+		
+		<!-- Assumes global locations for socket.io.js and easyrtc.js -->
+		<script src="/socket.io/socket.io.js"></script>
+		<script type="text/javascript" src="/easyrtc/easyrtc.js"></script>
+		<script type="text/javascript" src="js/audio_video.js"></script>
+		<script type="text/javascript" src="js/message.js"></script>
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+		
+		<!-- css -->
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+		
+		<script type="text/javascript">
+			window.onload = function() {
+				connectAudioVideo();
+				//connectMessage();
+			}
+		</script>
+	</head>
+	
+	<body>
+		<!--header-->
+		<div id="topbar" class="topbar'>
+			<div style="margin-top:4pt">
+				<a href='/' class="logo" >
+					<strong>ductoan</strong>.vn
+				</a>
+			</div>
+		</div>
+		
+		<!--Content-->
+		<div id="content" class="content">
+			<div id="videos">
+				<video id="localVideo" class="video1" muted="muted" volume="0" autoplay controls></video>
+				<video id="remoteVideo" class="video2" muted="muted" autoplay controls></video>
 
-    <h2>This is your server's Web Root</h2>
-
-    <p>This is the easiest location to put your own static html files for developing WebRTC applications.</p>
-
-    <p>In the meantime we'll forward you to <a href="/demos/">the EasyRTC Demo page</a>...</p>
-
-    <a href="http://www.easyrtc.com/"><img src="/easyrtc/img/powered_by_easyrtc.png" width="200" height="60" alt="Powered by EasyRTC"></a>
-</body>
+				<!--<div id="other" class="other"></div>-->
+				<div id="otherClients" class="otherClients"></div>
+			</div>
+			
+			<div id="message">
+				<div id="receiveMessageBox">
+					<div id="conversation"></div>
+				
+					<div id="inputMessageBox">
+						<textarea id="sendMessage"></textarea>
+						<button id="btnSend" class="btnSend" value="Send"></button>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<!--footer-->
+		<div id="bottombar">
+			<div id="logo_bottombar">
+				<a href="https://www.facebook.com/NDTPr0ducti0n?ref=tn_tnmn"><img src="images/logo2.png" alt="logo"/></a> 
+			</div>
+		</div>
+	</body>
 </html>
