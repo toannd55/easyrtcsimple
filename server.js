@@ -11,7 +11,7 @@ httpApp.configure(function() {
 });
 
 // Start Express http server on port 8080
-var webServer = http.createServer(httpApp).listen(80);
+var webServer = http.createServer(httpApp).listen(8080);
 
 // Start Socket.io so it attaches itself to Express server
 var socketServer = io.listen(webServer, {"log level":1});
