@@ -11,12 +11,23 @@ body {
 }
 
 #topbar {
-	position:absolute;
+	position: fixed;
     top:0px;
     left:0px;
     width:100%;
     height: 5%;
     background-color: rgba(64,64,64,1);
+}
+
+.otherClients {
+	position: relative;
+	margin-left: 60px;
+	margin-top: 20px;
+}
+
+#iam {
+	margin-top: 48px;
+	margin-left: 220px;
 }
 
 #videos{
@@ -26,22 +37,17 @@ body {
 }
 
 .video1 {
-	margin-top:95px;
+	margin-top:50px;
 	margin-left:60px;
     width:50%;
     height:70%;
 }
 
 .video2 {
-	margin-left: 20px;
-	margin-bottom: 210px;
+	margin-left: 4%;
+	margin-bottom: 23.5%;
 	width:20%;
 	height:30%;
-}
-
-.otherClients {
-	margin-left: 60px;
-	margin-top: 20px;
 }
 
 #message {
@@ -51,17 +57,61 @@ body {
 
 #receivedMessageBox {
 	position: absolute;
+	overflow: hidden;
 }
-#conversation {
-	width: 216px;
-	height:522px;
-	margin-top: 24px;
-	margin-right: -10px;
+
+#peerZone {
+	width: 248px;
+	height:155px;
+	margin-top: 22.5px;
+	margin-right: -8px;
 	background: rgba(234,229,229, 0.6);
-	border:solid 1px gray;
+	border-top:solid 1px gray;
+	border-left:solid 1px gray;
+	border-right:solid 1px gray;
 	color: #fff;
 	overflow-y:scroll;
 }
+
+.peerZone::-webkit-scrollbar {  
+    width: 0px;  
+}
+.peerZone::-webkit-scrollbar-track {  
+    background-color: #eaeaea;  
+    border-left: 1px solid #ccc;  
+}  
+.peerZone::-webkit-scrollbar-thumb {  
+    background-color: #ccc;  
+}  
+.peerZone::-webkit-scrollbar-thumb:hover {  
+    background-color: #aaa;  
+}
+
+#conversation {
+	width: 248px;
+	height:370px;
+	margin-right: -8px;
+	background: rgba(234,229,229, 0.6);
+	border-bottom:solid 1px gray;
+	border-left:solid 1px gray;
+	border-right:solid 1px gray;
+	color: #fff;
+	overflow-y:scroll;
+}
+
+.conversation::-webkit-scrollbar {  
+    width: 0px;  
+}  
+.conversation::-webkit-scrollbar-track {  
+    background-color: #eaeaea;  
+    border-left: 1px solid #ccc;  
+}  
+.conversation::-webkit-scrollbar-thumb {  
+    background-color: #ccc;  
+}  
+.conversation::-webkit-scrollbar-thumb:hover {  
+    background-color: #aaa;  
+}  
 
 #inputMessageBox {
 	position: relative;
@@ -69,8 +119,8 @@ body {
 
 #sendMessage {
 	position: absolute;
-	width: 180px;
-	height: 32px;
+	width: 213px;
+	height: 33px;
 	resize:none;
 }
 
@@ -83,7 +133,7 @@ body {
 }
 
 #bottombar {
-    position: absolute;
+    position: fixed;
     background-color:rgba(25,25,25,.8);
     color : #d0d0d0 ;
     bottom: 0px;

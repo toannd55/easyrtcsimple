@@ -6,13 +6,14 @@
 		<meta name="description" content="EasyRTC NDT" />
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1">
 		
+		<link rel="shortcut icon" href="images/logo.png" type="image/x-icon" />
 		<title>Call Video Free</title>
 		
 		<!-- Assumes global locations for socket.io.js and easyrtc.js -->
 		<script src="/socket.io/socket.io.js"></script>
 		<script type="text/javascript" src="/easyrtc/easyrtc.js"></script>
-		<script type="text/javascript" src="js/audio_video.js"></script>
-		<script type="text/javascript" src="js/message.js"></script>
+		 <script type="text/javascript" src="/easyrtc/easyrtc_ft.js"></script>
+		<script type="text/javascript" src="js/main.js"></script>
 		<script type="text/javascript" src="js/jquery.min.js"></script>
 		<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
 		
@@ -21,10 +22,27 @@
 		
 		<script type="text/javascript">
 			window.onload = function() {
-				connectAudioVideo();
+				connect();
 				//connectMessage();
-			}
+			};
 		</script>
+		
+		<style>
+			.dragndrop {
+                margin-top: -20px;	
+				display: inline-block;
+				width: 245px;
+				height: 80px;
+				border: 1px solid black;
+				border-radius: 5px;
+				font-size: 18px;
+				text-align:center;
+				font-family:Palatino Linotype;
+            }
+			.dragndropStatus {
+				margin-left: 20px;
+			}
+		</style>
 	</head>
 	
 	<body>
@@ -40,24 +58,31 @@
 		<!--Content-->
 		<div id="content" class="content">
 			<div id="videos">
+				<div id="rename">
+					<div id="iam">Obtaining ID...</div>
+				</div>
 				<video id="localVideo" class="video1" muted="muted" volume="0" autoplay controls></video>
-				<video id="remoteVideo" class="video2" muted="muted" autoplay controls></video>
-
-				<!--<div id="other" class="other"></div>-->
+				<video id="remoteVideo" class="video2" muted="muted" autoplay></video>
+				
+				<!--<div id="otherClientsVideo" class="otherClients"></div>-->
 				<div id="otherClients" class="otherClients"></div>
 			</div>
 			
 			<div id="message">
 				<div id="receiveMessageBox">
-					<div id="conversation"></div>
+					<div id="peerZone" class="peerZone"></div>
+					<div id="conversation" class="conversation"></div>
 				
 					<div id="inputMessageBox">
-						<textarea id="sendMessage"></textarea>
-						<button id="btnSend" class="btnSend" value="Send"></button>
+						<input id="sendMessage" onkeydown="if(event.keyCode == 13) document.getElementById('btnSend').click();"></input>
+						<button id="btnSend" class="btnSend" value="Send" onclick="connectMessageOfVideo();"></button>
 					</div>
 				</div>
+
 			</div>
+			
 		</div>
+
 		
 		<!--footer-->
 		<div id="bottombar">
